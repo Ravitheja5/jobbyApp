@@ -22,11 +22,8 @@ class JobItemDetails extends Component {
 
     const url = `https://apis.ccbp.in/jobs/${id}`
 
-   
-
     const token = Cookies.get('jwt_token')
 
-    
     const options = {
       method: 'GET',
       headers: {
@@ -44,8 +41,6 @@ class JobItemDetails extends Component {
       name: object.name,
     }))
 
-    
-
     const updatedData = {
       companyLogoUrl: data.company_logo_url,
       employementType: data.employment_type,
@@ -61,7 +56,7 @@ class JobItemDetails extends Component {
       },
       skills: updatedSkills,
     }
-    
+
     this.setState({jobDetailes: updatedData})
   }
 
@@ -79,9 +74,9 @@ class JobItemDetails extends Component {
       skills,
       lifeAtCompany,
     } = jobDetailes
-  console.log("job detaile in render",jobDetailes)
-   console.log("skillsinrender",jobDetailes.skills)
-   console.log("life at company in render",jobDetailes.lifeAtCompany)
+    console.log('job detaile in render', jobDetailes)
+    console.log('skillsinrender', jobDetailes.skills)
+    console.log('life at company in render', jobDetailes.lifeAtCompany)
     return (
       <div className="bg-container">
         <Header />
@@ -119,6 +114,12 @@ class JobItemDetails extends Component {
           <p className="job-description">{jobDescription}</p>
           <h1 className="skills-heading">Skills</h1>
 
+          <div className="skills-container">
+            {skills.map(eachObject => (
+              <SkillBox skillsData={eachObject} key={eachObject.name} />
+            ))}
+          </div>
+
           <div className="life-at-company-container">
             <div className="description-box">
               <h1 className="heading">Life at Company</h1>
@@ -131,8 +132,6 @@ class JobItemDetails extends Component {
               className="company-name"
             />
           </div>
-          
-
         </div>
       </div>
     )

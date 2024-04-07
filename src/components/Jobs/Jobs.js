@@ -3,6 +3,7 @@ import Header from '../Header/Header.js'
 import Cookies from 'js-cookie'
 import JobCard from '../JobCard/JobCard.js'
 import './index.css'
+
 const salaryRangesList = [
   {
     salaryRangeId: '1000000',

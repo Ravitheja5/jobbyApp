@@ -75,7 +75,7 @@ hr {
   justify-content: center;
   align-items: center;
 }
-.description-box{
+.description-box {
   display: flex;
   flex-direction: column;
 }
